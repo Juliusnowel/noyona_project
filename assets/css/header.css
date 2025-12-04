@@ -1,0 +1,207 @@
+/* ===== Header layout ===== */
+
+/* === Sticky wrapper for FSE header === */
+header.wp-block-template-part {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+}
+
+/* Avoid admin bar overlap when logged in */
+.admin-bar header.wp-block-template-part {
+    top: 32px;
+}
+@media (max-width: 782px) {
+    .admin-bar header.wp-block-template-part {
+        top: 46px;
+    }
+}
+
+.site-header {
+    background: #ffddddad; /* light pink */
+    align-items: center;
+    padding-left: var(--page-gutter-left, 1rem);
+    padding-right: var(--page-gutter-right, 1rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* When header is sticky (scrolled) – dark pink */
+body.has-scrolled-header .site-header {
+    background: #e5989b;            /* dark pink */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+/* Optional: make text/icons white on dark pink for contrast */
+header.wp-block-template-part.is-sticky .site-logo,
+header.wp-block-template-part.is-sticky .wp-block-navigation a,
+header.wp-block-template-part.is-sticky .header-icon,
+header.wp-block-template-part.is-sticky .header-mini-cart .wc-block-mini-cart__button {
+    color: #ffffff;
+}
+
+/* left: logo */
+.site-logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* center: main nav – force it to stay centered between left/right */
+.main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav .wp-block-navigation__container {
+    gap: 1.5rem;
+}
+
+/* right: icons */
+.header-icons {
+    min-width: 0;             
+    justify-content: flex-end;
+    gap: 0.4rem;               
+}
+
+.header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 0;            
+}
+
+/* make all header icons pink */
+.header-icons,
+.header-icon,
+.header-mini-cart .wc-block-mini-cart__button,
+.search-icon {
+    color: #ff6f9b;
+}
+
+.header-icon:hover,
+.header-mini-cart .wc-block-mini-cart__button:hover,
+.search-icon:hover {
+    background: rgba(255, 111, 155, 0.12);
+}
+
+/* mini-cart in header: reuse header-icon look */
+.header-mini-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* strip default button styling from Woo block */
+.header-mini-cart .wc-block-mini-cart__button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 999px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* badge styling */
+.header-mini-cart .wc-block-mini-cart__badge {
+    font-size: 0.7rem;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+/* hide any OTHER mini-cart blocks outside the header */
+.wp-block-woocommerce-mini-cart:not(.header-mini-cart) {
+    display: none !important;
+}
+
+/* badge styling */
+.header-mini-cart .wc-block-mini-cart__badge {
+    font-size: 0.7rem;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+/* hover effect consistent with other icons */
+.header-mini-cart .wc-block-mini-cart__button:hover {
+    background: #f3f3f3;
+}
+
+/* hide any OTHER mini-cart blocks outside the header */
+.wp-block-woocommerce-mini-cart:not(.header-mini-cart) {
+    display: none !important;
+}
+
+/* wishlist */
+.header-wishlist-toggle {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+
+/* Wishlist panel drawer */
+
+.wishlist-panel {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.wishlist-panel__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.wishlist-panel__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(360px, 90vw);
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wishlist-panel__close {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+/* open state */
+
+.wishlist-panel.is-open {
+    pointer-events: auto;
+}
+
+.wishlist-panel.is-open .wishlist-panel__overlay {
+    opacity: 1;
+}
+
+.wishlist-panel.is-open .wishlist-panel__content {
+    transform: translateX(0);
+}
+

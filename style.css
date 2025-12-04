@@ -1,0 +1,35 @@
+/*
+Theme Name: noyona-childtheme
+Theme URI: 
+Author: 
+Author URI: 
+Description: 
+Requires at least: 6.9
+Tested up to: 6.9
+Requires PHP: 5.7
+Version: 
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: twentytwentyfive
+Text Domain: noyona-childtheme
+Tags: 
+*/
+
+/* Design tokens */
+:root{
+  /* Gutters */
+  --page-gutter-left: clamp(12px, calc(12px + 208 * ((100vw - 360px) / 1080)), 220px);
+  --page-gutter-right: clamp(12px, calc(12px + 208 * ((100vw - 360px) / 1080)), 220px);
+  --page-gutter-inline: var(--page-gutter-left) var(--page-gutter-right);
+
+  /* Content rail */
+  --content-max: 72rem; /* ~1152px; tune as needed */
+
+  /* Utility */
+  --toc-top: 96px;
+
+  --section-mt: 125px;
+}
+
+/* Global reset for the top edge */
+html, body, .wp-block-group { margin: 0; padding: 0; }
