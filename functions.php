@@ -300,4 +300,5 @@ function woocom_ct_register_blocks() {
     register_block_type( get_stylesheet_directory() . '/blocks/collection-grid' );
     register_block_type( get_stylesheet_directory() . '/blocks/phone-video-reviews' );
     register_block_type( get_stylesheet_directory() . '/blocks/discover-posts-carousel' );
+    register_block_type( get_stylesheet_directory() . '/blocks/founder-section' );
 }

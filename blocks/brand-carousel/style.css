@@ -1,9 +1,22 @@
+/* ================================
+   WRAPPER / LAYOUT
+   ================================ */
+
 .brand-carousel {
     overflow: hidden;
     position: relative;
     width: 100%;
-    background: #fff;
-    padding-block: 3rem;
+    background: var(--brand-bg-color, #fff);
+    padding-top: var(--brand-padding-top, 3rem);
+    padding-bottom: var(--brand-padding-bottom, 3rem);
+}
+
+/* Force edge-to-edge full width */
+.wp-block-noyona-brand-carousel.brand-carousel.alignfull {
+    width: 99.6vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .brand-carousel__header {
@@ -25,9 +38,9 @@
     animation: brand-scroll var(--scroll-speed, 30s) linear infinite;
 }
 
-/* ========================================
+/* ================================
    BRAND MODE STYLES
-   ======================================== */
+   ================================ */
 
 .brand-carousel__item {
     display: flex;
@@ -36,16 +49,18 @@
     flex-shrink: 0;
 }
 
+/* Typography driven via CSS variables from block attributes */
 .brand-carousel__text {
     font-family: "Inter", sans-serif;
-    font-weight: 600;
+    font-weight: var(--brand-font-weight, 600);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #4b2f1e;
-    font-size: 1.1rem;
+    color: var(--brand-font-color, #4b2f1e);
+    font-size: var(--brand-font-size, clamp(0.9rem, 1.4vw, 1.1rem));
     white-space: nowrap;
 }
 
+/* Logo wrapper only exists when logo is passed from PHP */
 .brand-carousel__image-wrapper {
     width: 60px;
     height: 60px;
@@ -62,9 +77,9 @@
     display: block;
 }
 
-/* ========================================
+/* ================================
    REVIEW CARD STYLES
-   ======================================== */
+   ================================ */
 
 .review-card {
     background: #ffffff;
@@ -168,9 +183,9 @@
     text-overflow: ellipsis;
 }
 
-/* ========================================
+/* ================================
    ANIMATION
-   ======================================== */
+   ================================ */
 
 @keyframes brand-scroll {
     0% {
@@ -186,15 +201,11 @@
     animation-play-state: paused;
 }
 
-/* ========================================
+/* ================================
    RESPONSIVE
-   ======================================== */
+   ================================ */
 
 @media (max-width: 768px) {
-    .brand-carousel {
-        padding-block: 2rem;
-    }
-
     .brand-carousel__header {
         margin-bottom: 1.5rem;
     }
@@ -202,11 +213,7 @@
     .brand-carousel__track {
         gap: 1.5rem;
     }
-    
-    .brand-carousel__text {
-        font-size: 0.9rem;
-    }
-    
+
     .brand-carousel__image-wrapper {
         width: 40px;
         height: 40px;
