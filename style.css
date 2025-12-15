@@ -307,3 +307,19 @@ html, body, .wp-block-group { margin: 0; padding: 0; }
         margin-top: 2rem;
     }
 }
+
+/* Contact Banner */
+.contact-banner{
+  padding-top: 2rem;
+  padding-left: var(--page-gutter-left);
+  padding-right: var(--page-gutter-right);
+}
+
+/* Default: scale down to fit screen without cropping */
+.contact-banner__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
+}
